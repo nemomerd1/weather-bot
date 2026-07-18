@@ -1,0 +1,29 @@
+name: Weather Bot
+
+# Когда запускать бота
+on:
+  schedule:
+    # Запуск каждый день в 04:00 по UTC (это 07:00 по Москве)
+    - cron: '0 4 * * *'
+  # Позволяет запустить бота вручную кнопкой (для теста)
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run weather script
+        env:
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+        run: python weather_agent.py
