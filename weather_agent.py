@@ -45,10 +45,10 @@ def get_weather_report(city_query):
         will_rain = False
         rain_hours = []
         
-        # Берем следующие 12 часов
+        # Берем следующие 24 часа
         current_hour = current["time"][:13]  # "2024-01-15T10"
         
-        for i in range(12):
+        for i in range(24):
             hour_time = hourly["time"][i]
             hour_temp = hourly["temperature_2m"][i]
             hour_precip = hourly["precipitation_probability"][i]
