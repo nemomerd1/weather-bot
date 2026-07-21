@@ -91,7 +91,7 @@ def get_weather_report(city_query):
         else:
             body += "\n✅ Дождя не ожидается\n"
         
-        body += "\n🕐 ПРОГНОЗ ПО ЧАСАМ (следующие 12 часов):\n"
+        body += "\n🕐 ПРОГНОЗ ПО ЧАСАМ (следующие 24 часа):\n"
         body += "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
         
         for hour_data in hourly_forecast:
